@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Stats For League</string>
+    <string name="championsButton">Champions</string>
+    <string name="title_activity_champions">ChampionsActivity</string>
 </resources>
