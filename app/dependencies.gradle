@@ -8,12 +8,15 @@ ext {
             mockito         : "2.13.0",
             timber          : '4.5.1',
             espresso        : '3.0.1',
-            testRunner      : '1.0.1'
+            testRunner      : '1.0.1',
+            retrofit        : '2.3.0',
     ]
 
     butterKnife = "com.jakewharton:butterknife:$versions.butterKnife"
     butterKnifeCompiler = "com.jakewharton:butterknife-compiler:$versions.butterKnife"
     timber = "com.jakewharton.timber:timber:$versions.timber"
+    retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    retrofitGson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 
     supportDeps = [
             appcompatV7     : "com.android.support:appcompat-v7:$versions.support",
@@ -35,7 +38,7 @@ ext {
     ]
 
     supportLibs = supportDeps.values()
-    otherLibs = [butterKnife, timber]
+    otherLibs = [butterKnife, timber, retrofit, retrofitGson]
     unitTestLibs = unitTestDeps.values()
     androidTestLibs = androidTestDeps.values()
     annotationProcessorLibs = [butterKnifeCompiler]

@@ -10,6 +10,11 @@ public class MainPresenter implements MainMVP.MainPresenter {
 
     @Override
     public void championsButtonClicked() {
-        view.displayChampionsMessage();
+        view.navigateToChampionsActivity();
+    }
+
+    @Override
+    public void summonersButtonClicked(String summonerName) {
+        view.navigateToSummonersActivity(summonerName);
     }
 }
