@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.data.model.SummonerDTO;
@@ -35,7 +36,12 @@ public class SummonersActivity extends AppCompatActivity implements SummonersMVP
 
     @Override
     public void showSummoner(SummonerDTO summonerDTO) {
-        // TODO set layout
+        Toast.makeText(SummonersActivity.this, summonerDTO.getName(), Toast.LENGTH_SHORT).show();
         System.out.println();
+    }
+
+    @Override
+    public void showErrorToast(String error) {
+        Toast.makeText(SummonersActivity.this, error, Toast.LENGTH_SHORT).show();
     }
 }

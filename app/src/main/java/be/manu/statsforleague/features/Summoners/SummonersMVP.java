@@ -9,5 +9,7 @@ public interface SummonersMVP {
 
     interface view {
         void showSummoner(SummonerDTO summonerDTO);
+
+        void showErrorToast(String error);
     }
 }

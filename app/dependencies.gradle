@@ -1,15 +1,16 @@
 ext {
     versions = [
-            support         : "27.0.2",
-            constraintLayout: "1.0.2",
-            butterKnife     : "8.8.1",
-            hamcrest        : "1.3",
-            junit           : "4.12",
-            mockito         : "2.13.0",
-            timber          : '4.5.1',
-            espresso        : '3.0.1',
-            testRunner      : '1.0.1',
-            retrofit        : '2.3.0',
+            support           : "27.0.2",
+            constraintLayout  : "1.0.2",
+            butterKnife       : "8.8.1",
+            hamcrest          : "1.3",
+            junit             : "4.12",
+            mockito           : "2.13.0",
+            timber            : '4.5.1',
+            espresso          : '3.0.1',
+            testRunner        : '1.0.1',
+            retrofit          : '2.3.0',
+            loggingInterceptor: '3.10.0'
     ]
 
     butterKnife = "com.jakewharton:butterknife:$versions.butterKnife"
@@ -17,6 +18,7 @@ ext {
     timber = "com.jakewharton.timber:timber:$versions.timber"
     retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
     retrofitGson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$versions.loggingInterceptor"
 
     supportDeps = [
             appcompatV7     : "com.android.support:appcompat-v7:$versions.support",
@@ -38,7 +40,7 @@ ext {
     ]
 
     supportLibs = supportDeps.values()
-    otherLibs = [butterKnife, timber, retrofit, retrofitGson]
+    otherLibs = [butterKnife, timber, retrofit, retrofitGson, okHttpLoggingInterceptor]
     unitTestLibs = unitTestDeps.values()
     androidTestLibs = androidTestDeps.values()
     annotationProcessorLibs = [butterKnifeCompiler]
