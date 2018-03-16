@@ -1,10 +1,10 @@
 package be.manu.statsforleague.features.champions;
 
-public class ChampionsPresenter implements ChampionsMVP.Presenter {
+public class ChampionsPresenter implements ChampionsContract.Presenter {
 
-    private ChampionsMVP.View view;
+    private ChampionsContract.View view;
 
-    ChampionsPresenter(ChampionsMVP.View view) {
+    ChampionsPresenter(ChampionsContract.View view) {
         this.view = view;
     }
 

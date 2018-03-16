@@ -1,10 +1,10 @@
 package be.manu.statsforleague.features.main;
 
-public class MainPresenter implements MainMVP.MainPresenter {
+public class MainPresenter implements MainContract.MainPresenter {
 
-    private final MainMVP.MainView view;
+    private final MainContract.MainView view;
 
-    MainPresenter(MainMVP.MainView view) {
+    MainPresenter(MainContract.MainView view) {
         this.view = view;
     }
 

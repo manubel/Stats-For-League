@@ -1,6 +1,6 @@
 package be.manu.statsforleague.features.champions;
 
-public interface ChampionsMVP {
+public interface ChampionsContract {
     interface Presenter {
         void floatingButtonClicked();
     }

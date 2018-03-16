@@ -1,8 +1,8 @@
-package be.manu.statsforleague.features.Summoners;
+package be.manu.statsforleague.features.summoners;
 
 import be.manu.statsforleague.data.model.SummonerDTO;
 
-public interface SummonersMVP {
+public interface SummonersContract {
     interface presenter {
         void getSummoner(String summonerName);
     }

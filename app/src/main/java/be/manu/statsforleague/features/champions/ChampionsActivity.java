@@ -9,9 +9,9 @@ import be.manu.statsforleague.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ChampionsActivity extends AppCompatActivity implements ChampionsMVP.View {
+public class ChampionsActivity extends AppCompatActivity implements ChampionsContract.View {
 
-    ChampionsMVP.Presenter presenter;
+    ChampionsContract.Presenter presenter;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

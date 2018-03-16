@@ -2,17 +2,27 @@ package be.manu.statsforleague.features.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import be.manu.statsforleague.R;
-import be.manu.statsforleague.features.Summoners.SummonersActivity;
 import be.manu.statsforleague.features.champions.ChampionsActivity;
+import be.manu.statsforleague.features.champions.ChampionsFragment;
+import be.manu.statsforleague.features.summoners.SummonersActivity;
+import be.manu.statsforleague.features.summoners.SummonersFragment;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements MainMVP.MainView {
+public class MainActivity extends AppCompatActivity implements MainContract.MainView {
 
     private MainPresenter presenter;
+
+    @BindView(R.id.bottom_navigation)
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +31,7 @@ public class MainActivity extends AppCompatActivity implements MainMVP.MainView 
         ButterKnife.bind(this);
 
         presenter = new MainPresenter(this);
-    }
-
-    @OnClick(R.id.championsButton)
-    void clickChampionsButton() {
-        presenter.championsButtonClicked();
-    }
-
-    @OnClick(R.id.summonersButton)
-    void clickSummonerButton() {
-        // TODO hardcoded vervangen door data uit layout
-        presenter.summonersButtonClicked("furion");
+        setupNavigation();
     }
 
     @Override
@@ -45,4 +45,35 @@ public class MainActivity extends AppCompatActivity implements MainMVP.MainView 
         startActivity(SummonersActivity.getStartIntent(this, summonerName));
     }
 
+    private void setupNavigation() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Fragment selectedFragment = null;
+                        switch (item.getItemId()) {
+                            case R.id.action_home:
+                                selectedFragment = HomeFragment.newInstance();
+                                break;
+                            case R.id.action_summoner:
+                                selectedFragment = SummonersFragment.newInstance();
+                                break;
+                            case R.id.action_info:
+                                selectedFragment = ChampionsFragment.newInstance();
+                                break;
+                        }
+                        executeFragmentTransaction(selectedFragment);
+                        return true;
+                    }
+                });
+
+        // Manueel de eerste fragment tonen bij het initieel laden van de app
+        executeFragmentTransaction(HomeFragment.newInstance());
+    }
+
+    private void executeFragmentTransaction(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, fragment);
+        transaction.commit();
+    }
 }

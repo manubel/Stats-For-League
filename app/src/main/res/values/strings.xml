@@ -4,4 +4,19 @@
     <string name="title_activity_champions">ChampionsActivity</string>
     <string name="summonersButton">Summoners</string>
     <string name="thirdButton">Third</string>
+
+    <string name="homeButton">Home</string>
+    <string name="searchSummonerButton">Search</string>
+    <string name="searchChampionInfoButton">Info</string>
+
+    <!--fragment_home-->
+    <string name="welcomeText">Welcome to the app!</string>
+    <string name="browseText">Feel free to browse through the tabs</string>
+
+    <!--fragment_search_summoner-->
+    <string name="summonerText">This is the search summoner screen</string>
+    <string name="actionSearch">Search for something</string>
+
+    <!--fragment_champion_info-->
+    <string name="championText">This is the champion information screen</string>
 </resources>

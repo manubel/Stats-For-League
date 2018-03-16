@@ -1,4 +1,4 @@
-package be.manu.statsforleague.features.Summoners;
+package be.manu.statsforleague.features.summoners;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import be.manu.statsforleague.R;
 import be.manu.statsforleague.data.model.SummonerDTO;
 import butterknife.ButterKnife;
 
-public class SummonersActivity extends AppCompatActivity implements SummonersMVP.view {
+public class SummonersActivity extends AppCompatActivity implements SummonersContract.view {
 
     private static final String SUMMONER_NAME = "summoner_name";
     private SummonersPresenter presenter;

@@ -22,7 +22,7 @@
             android:name=".features.champions.ChampionsActivity"
             android:label="@string/title_activity_champions"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".features.Summoners.SummonersActivity"></activity>
+        <activity android:name=".features.summoners.SummonersActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
 ext {
     versions = [
-            support           : "27.0.2",
+            support           : "27.1.0",
             constraintLayout  : "1.0.2",
             butterKnife       : "8.8.1",
             hamcrest          : "1.3",
@@ -24,7 +24,8 @@ ext {
             appcompatV7     : "com.android.support:appcompat-v7:$versions.support",
             design          : "com.android.support:design:$versions.support",
             recyclerView    : "com.android.support:recyclerview-v7:$versions.support",
-            constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
+            constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
+            cardView        : "com.android.support:cardview-v7:$versions.support"
     ]
 
     unitTestDeps = [
