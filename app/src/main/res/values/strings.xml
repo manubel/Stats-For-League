@@ -20,7 +20,4 @@
 
     <!--fragment_champions-->
     <string name="championText">This is the champion information screen</string>
-
-    <string name="item_title">Palais Garnier</string>
-
 </resources>
