@@ -6,7 +6,7 @@
     <string name="thirdButton">Third</string>
 
     <string name="homeButton">Home</string>
-    <string name="searchSummonerButton">Search</string>
+
     <string name="searchChampionInfoButton">Info</string>
 
     <!--fragment_home-->
@@ -14,9 +14,13 @@
     <string name="browseText">Feel free to browse through the tabs</string>
 
     <!--fragment_search_summoner-->
-    <string name="summonerText">This is the search summoner screen</string>
-    <string name="actionSearch">Search for something</string>
+    <string name="summonerText">Find your summoner</string>
+    <string name="usernameTextField">Enter username</string>
+    <string name="searchSummonerButton">Search</string>
 
-    <!--fragment_champion_info-->
+    <!--fragment_champions-->
     <string name="championText">This is the champion information screen</string>
+
+    <string name="item_title">Palais Garnier</string>
+
 </resources>

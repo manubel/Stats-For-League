@@ -1,6 +1,8 @@
 package be.manu.statsforleague.data.model;
 
-public class SummonerDTO {
+import java.io.Serializable;
+
+public class SummonerDTO implements Serializable {
     private Integer profileIconId;
     private String name;
     private Long summonerLevel;

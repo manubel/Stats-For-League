@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.main.HomeFragment">
+    tools:context=".features.main.fragments.home.HomeFragment">
 
     <!--TODO edit picture-->
     <ImageView
@@ -11,7 +11,7 @@
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         android:contentDescription="TODO"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/league_logo_foreground" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,6 +1,5 @@
 package be.manu.statsforleague.features.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,16 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import be.manu.statsforleague.R;
-import be.manu.statsforleague.features.champions.ChampionsActivity;
-import be.manu.statsforleague.features.champions.ChampionsFragment;
-import be.manu.statsforleague.features.summoners.SummonersActivity;
-import be.manu.statsforleague.features.summoners.SummonersFragment;
+import be.manu.statsforleague.features.main.fragments.champions.ChampionsFragment;
+import be.manu.statsforleague.features.main.fragments.home.HomeFragment;
+import be.manu.statsforleague.features.main.fragments.summoner.SummonerSearchFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainContract.MainView {
-
-    private MainPresenter presenter;
+public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
@@ -30,19 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        presenter = new MainPresenter(this);
         setupNavigation();
-    }
-
-    @Override
-    public void navigateToChampionsActivity() {
-        Intent intent = new Intent(MainActivity.this, ChampionsActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void navigateToSummonersActivity(String summonerName) {
-        startActivity(SummonersActivity.getStartIntent(this, summonerName));
     }
 
     private void setupNavigation() {
@@ -56,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
                                 selectedFragment = HomeFragment.newInstance();
                                 break;
                             case R.id.action_summoner:
-                                selectedFragment = SummonersFragment.newInstance();
+                                selectedFragment = SummonerSearchFragment.newInstance();
                                 break;
                             case R.id.action_info:
                                 selectedFragment = ChampionsFragment.newInstance();

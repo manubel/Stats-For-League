@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".features.champions.ChampionsActivity"
+            android:name=".features.champions.ChampionActivity"
             android:label="@string/title_activity_champions"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".features.summoners.SummonersActivity"></activity>
+        <activity android:name=".features.summoners.SummonerDetailsActivity"></activity>
     </application>
 
 </manifest>

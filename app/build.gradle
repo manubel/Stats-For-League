@@ -26,6 +26,7 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 
     implementation 'com.android.support:support-v4:27.1.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     testImplementation unitTestLibs
     androidTestImplementation androidTestLibs
 
