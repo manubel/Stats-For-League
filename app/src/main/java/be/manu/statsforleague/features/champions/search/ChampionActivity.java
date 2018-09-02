@@ -2,6 +2,7 @@ package be.manu.statsforleague.features.champions.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import butterknife.OnClick;
 public class ChampionActivity extends BaseActivity implements ChampionContract.View {
 
     private static final String CHAMPION_ID = "champion_id";
+    private static final String WIKI_BASE_URI = "http://leagueoflegends.wikia.com/wiki/";
     private ChampionContract.Presenter presenter;
     private ChampionDTO championDTO;
 
@@ -57,6 +59,11 @@ public class ChampionActivity extends BaseActivity implements ChampionContract.V
         presenter.getCountFromDb();
     }
 
+    @OnClick(R.id.visit_champion_page)
+    void visitChampionPage() {
+        visitChampionWebsite();
+    }
+
     @Override
     public void showChampionAddedMessage() {
         Toast.makeText(this, "Champion added to DB!", Toast.LENGTH_SHORT).show();
@@ -82,5 +89,18 @@ public class ChampionActivity extends BaseActivity implements ChampionContract.V
     @Override
     public void showCountToast(int count) {
         Toast.makeText(this, "There are: " + count + " champions in the DB", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void visitChampionWebsite() {
+        if (championDTO != null) {
+            Uri webPage = Uri.parse(WIKI_BASE_URI + championDTO.getName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        } else {
+            Toast.makeText(this, "There was an error loading the champion info", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -64,4 +64,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/visit_champion_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/store_in_db_button"
+        app:layout_constraintStart_toEndOf="@+id/check_db_count_button"
+        app:srcCompat="@android:drawable/ic_menu_help" />
+
 </android.support.constraint.ConstraintLayout>

@@ -21,5 +21,7 @@ public interface ChampionContract {
         void setChampion(ChampionDTO championDTO);
 
         void showCountToast(int i);
+
+        void visitChampionWebsite();
     }
 }
