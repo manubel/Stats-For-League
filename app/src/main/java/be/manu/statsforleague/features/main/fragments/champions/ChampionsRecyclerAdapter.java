@@ -28,7 +28,9 @@ public class ChampionsRecyclerAdapter extends RecyclerView.Adapter<ChampionsRecy
 
     ChampionsRecyclerAdapter(List<ChampionDTO> championList) {
         this.championList = championList;
-        this.championList.remove(0);
+        if (!championList.isEmpty()) {
+            this.championList.remove(0);
+        }
     }
 
     @NonNull

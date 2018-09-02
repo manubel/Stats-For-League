@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collections;
 import java.util.List;
 
 import be.manu.statsforleague.R;
@@ -37,9 +38,19 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_champions, container, false);
         unbinder = ButterKnife.bind(this, view);
+        setupRecyclerView();
         presenter = new ChampionsPresenter(this);
         presenter.fetchChampionList();
         return view;
+    }
+
+    private void setupRecyclerView() {
+        recyclerView.setAdapter(new ChampionsRecyclerAdapter(Collections.<ChampionDTO>emptyList()));
+        recyclerView.setHasFixedSize(true);
+        // Set padding for Tiles
+        int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
+        recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
     }
 
     @Override
@@ -51,11 +62,6 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
     @Override
     public void showChampionsList(@NonNull List<ChampionDTO> championList) {
         recyclerView.setAdapter(new ChampionsRecyclerAdapter(championList));
-        recyclerView.setHasFixedSize(true);
-        // Set padding for Tiles
-        int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
-        recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
     }
 
     @Override
