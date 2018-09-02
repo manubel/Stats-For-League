@@ -45,11 +45,11 @@ public class SummonerDetailsActivity extends AppCompatActivity implements Summon
 
     @Override
     public void showSummoner(SummonerDTO summonerDTO) {
-        nameTextView.setText(summonerDTO.getName());
-        levelTextView.setText(String.valueOf(summonerDTO.getSummonerLevel()));
-        accountIdTextView.setText(String.valueOf(summonerDTO.getAccountId()));
-        profileIconIdTextView.setText(String.valueOf(summonerDTO.getProfileIconId()));
-        summonerIdTextView.setText(String.valueOf(summonerDTO.getId()));
+        nameTextView.setText(getString(R.string.summoner_name, summonerDTO.getName()));
+        levelTextView.setText(getString(R.string.summoner_level, String.valueOf(summonerDTO.getSummonerLevel())));
+        accountIdTextView.setText(getString(R.string.summoner_account_id, String.valueOf(summonerDTO.getAccountId())));
+        profileIconIdTextView.setText(getString(R.string.summoner_summoner_id, String.valueOf(summonerDTO.getId())));
+        summonerIdTextView.setText(getString(R.string.summoner_profile_icon_id, String.valueOf(summonerDTO.getProfileIconId())));
     }
 
     @Override

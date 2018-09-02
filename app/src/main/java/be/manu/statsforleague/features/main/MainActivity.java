@@ -1,17 +1,21 @@
 package be.manu.statsforleague.features.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.features.main.fragments.champions.ChampionsFragment;
 import be.manu.statsforleague.features.main.fragments.home.HomeFragment;
 import be.manu.statsforleague.features.main.fragments.summoner.SummonerSearchFragment;
+import be.manu.statsforleague.features.settings.SettingsActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -27,6 +31,24 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setupNavigation();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.global_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupNavigation() {

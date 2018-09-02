@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.main.MainActivity">
+        <activity
+            android:name=".features.main.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +24,15 @@
             android:name=".features.champions.ChampionActivity"
             android:label="@string/title_activity_champions"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".features.summoners.SummonerDetailsActivity"></activity>
+        <activity android:name=".features.summoners.SummonerDetailsActivity" />
+        <activity
+            android:name=".features.settings.SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName=".features.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".features.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
