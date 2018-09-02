@@ -3,17 +3,17 @@ package be.manu.statsforleague.features.champions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.data.model.ChampionDTO;
+import be.manu.statsforleague.features.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ChampionActivity extends AppCompatActivity implements ChampionContract.View {
+public class ChampionActivity extends BaseActivity implements ChampionContract.View {
 
     private static final String CHAMPION_ID = "champion_id";
     private ChampionContract.Presenter presenter;

@@ -3,16 +3,16 @@ package be.manu.statsforleague.features.summoners;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.data.model.SummonerDTO;
+import be.manu.statsforleague.features.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SummonerDetailsActivity extends AppCompatActivity implements SummonerDetailsContract.view {
+public class SummonerDetailsActivity extends BaseActivity implements SummonerDetailsContract.view {
 
     private static final String SUMMONER_NAME = "summoner_name";
     @BindView(R.id.summoner_name)

@@ -25,7 +25,8 @@ ext {
             design          : "com.android.support:design:$versions.support",
             recyclerView    : "com.android.support:recyclerview-v7:$versions.support",
             constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
-            cardView        : "com.android.support:cardview-v7:$versions.support"
+            cardView        : "com.android.support:cardview-v7:$versions.support",
+            preferences     : "com.android.support:preference-v7:$versions.support"
     ]
 
     unitTestDeps = [
