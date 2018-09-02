@@ -10,4 +10,7 @@
     <dimen name="tile_padding">8dp</dimen>
     <dimen name="tile_height">160dp</dimen>
     <dimen name="article_titles">20sp</dimen>
+    <dimen name="text_size_42">42sp</dimen>
+    <dimen name="text_size_30">30sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
 </resources>

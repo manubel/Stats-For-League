@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -66,7 +67,7 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
 
     @Override
     public void showChampionsFetchError() {
-
+        Toast.makeText(getActivity(), "Error retrieving champions from webservice!", Toast.LENGTH_SHORT).show();
     }
 }
 

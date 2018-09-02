@@ -36,7 +36,8 @@ public class ChampionsRecyclerAdapter extends RecyclerView.Adapter<ChampionsRecy
     @NonNull
     @Override
     public ChampionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ChampionsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tile, parent, false));
+        return new ChampionsViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_tile, parent, false));
     }
 
     @Override

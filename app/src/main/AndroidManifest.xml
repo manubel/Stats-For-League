@@ -33,6 +33,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".features.main.MainActivity" />
         </activity>
+        <activity
+            android:name=".features.champions.overview.ChampionsOverviewActivity"
+            android:label="@string/action_champions"
+            android:parentActivityName=".features.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".features.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

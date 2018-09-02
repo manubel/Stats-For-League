@@ -6,15 +6,21 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import be.manu.statsforleague.data.model.ChampionDTO;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Champions.db";
-    public static final String CHAMPION_TABLE_NAME = "champion";
-    public static final String CHAMPION_COLUMN_ID = "_id";
-    public static final String CHAMPION_COLUMN_NAME = "name";
-    public static final String CHAMPION_COLUMN_TITLE = "title";
-    public static final String CHAMPION_COLUMN_BIO = "bio";
+    private static final String DATABASE_NAME = "Champions.db";
+    private static final String CHAMPION_TABLE_NAME = "champion";
+    private static final String CHAMPION_COLUMN_ID = "_id";
+    private static final String CHAMPION_COLUMN_NAME = "name";
+    private static final String CHAMPION_COLUMN_TITLE = "title";
+    private static final String CHAMPION_COLUMN_BIO = "bio";
     private static final int DATABASE_VERSION = 1;
 
     public DBHelper(Context context) {
@@ -72,14 +78,53 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[]{Integer.toString(id)});
     }
 
-    public Cursor getChampion(int id) {
+    public ChampionDTO getChampion(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + CHAMPION_TABLE_NAME + " WHERE " +
-                CHAMPION_COLUMN_ID + "=?", new String[]{Integer.toString(id)});
+        ChampionDTO championDTO = new ChampionDTO();
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT * FROM " + CHAMPION_TABLE_NAME + " WHERE " +
+                    CHAMPION_COLUMN_ID + "=?", new String[]{Integer.toString(id)});
+            cursor.moveToNext();
+            championDTO = createChampionDTO(cursor);
+        } finally {
+            close(db, cursor);
+        }
+        return championDTO;
     }
 
-    public Cursor getAllChampions() {
+    public List<ChampionDTO> getAllChampions() {
+        List<ChampionDTO> championDTOS = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + CHAMPION_TABLE_NAME, null);
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT * FROM " + CHAMPION_TABLE_NAME, null);
+            while (cursor.moveToNext()) {
+                championDTOS.add(createChampionDTO(cursor));
+            }
+        } finally {
+            close(db, cursor);
+        }
+
+        return championDTOS;
+    }
+
+    private void close(SQLiteDatabase db, Cursor cursor) {
+        if (cursor != null) {
+            cursor.close();
+        }
+        if (db != null) {
+            db.close();
+        }
+    }
+
+    @NonNull
+    private ChampionDTO createChampionDTO(Cursor cursor) {
+        ChampionDTO championDTO = new ChampionDTO();
+        championDTO.setId(cursor.getInt(0));
+        championDTO.setName(cursor.getString(1));
+        championDTO.setTitle(cursor.getString(2));
+        championDTO.setShortBio(cursor.getString(3));
+        return championDTO;
     }
 }

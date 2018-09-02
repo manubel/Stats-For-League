@@ -16,6 +16,7 @@ import java.util.Objects;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.features.BaseActivity;
+import be.manu.statsforleague.features.champions.overview.ChampionsOverviewActivity;
 import be.manu.statsforleague.features.main.fragments.champions.ChampionsFragment;
 import be.manu.statsforleague.features.main.fragments.home.HomeFragment;
 import be.manu.statsforleague.features.main.fragments.summoner.SummonerSearchFragment;
@@ -52,6 +53,11 @@ public class MainActivity extends BaseActivity {
         if (id == R.id.action_settings) {
             Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
             startActivity(startSettingsActivity);
+            return true;
+        }
+        if (id == R.id.action_champions) {
+            Intent startChampionsOverviewActivity = new Intent(this, ChampionsOverviewActivity.class);
+            startActivity(startChampionsOverviewActivity);
             return true;
         }
         return super.onOptionsItemSelected(item);
