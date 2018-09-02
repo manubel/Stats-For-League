@@ -24,6 +24,7 @@ public class SummonerDetailsPresenter implements SummonerDetailsContract.present
 
     @Override
     public void getSummoner(final String summonerName) {
+        view.startProgressBar();
         RiotApi riotApi = new RiotApiManager().getRiotApi();
 
         Call<SummonerDTO> call = riotApi.getSummonerByName(summonerName);
@@ -31,6 +32,7 @@ public class SummonerDetailsPresenter implements SummonerDetailsContract.present
         call.enqueue(new Callback<SummonerDTO>() {
             @Override
             public void onResponse(@NonNull Call<SummonerDTO> call, @NonNull Response<SummonerDTO> response) {
+                view.endProgressBar();
                 if (response.isSuccessful()) {
                     view.showSummoner(response.body());
                 } else {
@@ -42,6 +44,7 @@ public class SummonerDetailsPresenter implements SummonerDetailsContract.present
             @Override
             public void onFailure(@NonNull Call<SummonerDTO> call, @NonNull Throwable t) {
                 Log.e(ERROR_CALLING_API, t.getMessage());
+                view.endProgressBar();
                 view.showErrorToast(ERROR_CALLING_API_MESSAGE);
             }
         });

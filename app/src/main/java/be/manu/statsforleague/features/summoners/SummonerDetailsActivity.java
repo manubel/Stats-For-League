@@ -3,6 +3,8 @@ package be.manu.statsforleague.features.summoners;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,8 @@ public class SummonerDetailsActivity extends BaseActivity implements SummonerDet
     TextView profileIconIdTextView;
     @BindView(R.id.summoner_summoner_id)
     TextView summonerIdTextView;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
     private SummonerDetailsPresenter presenter;
 
     public static Intent getStartIntent(Context context, String summonerName) {
@@ -55,5 +59,15 @@ public class SummonerDetailsActivity extends BaseActivity implements SummonerDet
     @Override
     public void showErrorToast(String error) {
         Toast.makeText(SummonerDetailsActivity.this, error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void startProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endProgressBar() {
+        progressBar.setVisibility(View.GONE);
     }
 }

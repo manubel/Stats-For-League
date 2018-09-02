@@ -11,5 +11,9 @@ public interface SummonerDetailsContract {
         void showSummoner(SummonerDTO summonerDTO);
 
         void showErrorToast(String error);
+
+        void startProgressBar();
+
+        void endProgressBar();
     }
 }
