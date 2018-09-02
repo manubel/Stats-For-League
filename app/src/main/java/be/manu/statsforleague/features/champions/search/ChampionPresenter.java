@@ -1,4 +1,4 @@
-package be.manu.statsforleague.features.champions;
+package be.manu.statsforleague.features.champions.search;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

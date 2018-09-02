@@ -15,7 +15,7 @@ import java.util.List;
 
 import be.manu.statsforleague.R;
 import be.manu.statsforleague.data.model.ChampionDTO;
-import be.manu.statsforleague.features.champions.ChampionActivity;
+import be.manu.statsforleague.features.champions.search.ChampionActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

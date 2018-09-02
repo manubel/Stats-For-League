@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".features.champions.ChampionActivity"
+            android:name=".features.champions.search.ChampionActivity"
             android:label="@string/title_activity_champions"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".features.summoners.SummonerDetailsActivity" />

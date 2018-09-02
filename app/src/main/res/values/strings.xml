@@ -18,6 +18,7 @@
     <string name="summoner_summoner_id">Summoner summoner id: %1$s</string>
     <string name="summoner_profile_icon_id">Summoner profile icon id: %1$s</string>
     <string name="action_settings">Settings</string>
+    <string name="action_champions">Champions</string>
 
     <string name="pref_color_label">App color</string>
     <string name="pref_color_label_red">Red</string>

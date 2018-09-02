@@ -1,4 +1,4 @@
-package be.manu.statsforleague.features.champions;
+package be.manu.statsforleague.features.champions.search;
 
 import be.manu.statsforleague.data.model.ChampionDTO;
 
