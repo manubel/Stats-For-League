@@ -2,7 +2,9 @@ package be.manu.statsforleague.features.main.fragments.champions;
 
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +29,8 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
     private Unbinder unbinder;
     private ChampionsContract.Presenter presenter;
 
+    private final String RECYCLER_POSITION_KEY = "recycler_position";
+
     public ChampionsFragment() {
     }
 
@@ -41,7 +45,12 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
         unbinder = ButterKnife.bind(this, view);
         setupRecyclerView();
         presenter = new ChampionsPresenter(this);
-        presenter.fetchChampionList();
+        if (savedInstanceState != null) {
+            Parcelable listState = savedInstanceState.getParcelable(RECYCLER_POSITION_KEY);
+            presenter.fetchChampionList(listState);
+        } else {
+            presenter.fetchChampionList(null);
+        }
         return view;
     }
 
@@ -61,8 +70,27 @@ public class ChampionsFragment extends Fragment implements ChampionsContract.Vie
     }
 
     @Override
-    public void showChampionsList(@NonNull List<ChampionDTO> championList) {
+    public void showChampionsList(@NonNull List<ChampionDTO> championList, Parcelable listState) {
         recyclerView.setAdapter(new ChampionsRecyclerAdapter(championList));
+        if (listState != null) {
+            recyclerView.getLayoutManager().onRestoreInstanceState(listState);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Parcelable listState = recyclerView.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable(RECYCLER_POSITION_KEY, listState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) {
+            Parcelable listState = savedInstanceState.getParcelable(RECYCLER_POSITION_KEY);
+            recyclerView.getLayoutManager().onRestoreInstanceState(listState);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package be.manu.statsforleague.features.main.fragments.champions;
 
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -24,7 +25,7 @@ public class ChampionsPresenter implements ChampionsContract.Presenter {
     }
 
     @Override
-    public void fetchChampionList() {
+    public void fetchChampionList(final Parcelable listState) {
         api.getChampionList()
                 .enqueue(new Callback<List<ChampionDTO>>() {
                     @Override
@@ -32,7 +33,7 @@ public class ChampionsPresenter implements ChampionsContract.Presenter {
                         if (response.isSuccessful()) {
                             List<ChampionDTO> championDTOList = response.body();
                             if (championDTOList != null && !championDTOList.isEmpty()) {
-                                view.showChampionsList(championDTOList);
+                                view.showChampionsList(championDTOList, listState);
                             } else {
                                 Log.e(ERROR, response.message());
                                 view.showChampionsFetchError();

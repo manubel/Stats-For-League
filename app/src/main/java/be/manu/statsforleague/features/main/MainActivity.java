@@ -38,6 +38,10 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         setupNavigation();
+        if (savedInstanceState == null) {
+            // Manueel de eerste fragment tonen bij het initieel laden van de app
+            executeFragmentTransaction(HomeFragment.newInstance());
+        }
     }
 
     @Override
@@ -92,8 +96,6 @@ public class MainActivity extends BaseActivity {
                         return true;
                     }
                 });
-        // Manueel de eerste fragment tonen bij het initieel laden van de app
-        executeFragmentTransaction(HomeFragment.newInstance());
     }
 
     private void executeFragmentTransaction(Fragment fragment) {
